@@ -1,11 +1,11 @@
 ///Cash the Dom//////
-var userScore = 0;
+let userScore = 0;
 var computerScore = 0;
 ///These are Dom variables Hml elements that store Dom Elements////
 const userScore_span =document.getElementById('user-score');
 const computerScore_span = document.getElementById("comp-score");
 const scoreBoard_div = document.querySelector('.score-board');
-const result_div = document.querySelector('.result > p');
+const result_p = document.querySelector('.result > p');
 const rock_div = document.getElementById('r');
 const paper_div = document.getElementById('p');
 const scissor_div = document.getElementById('s');
@@ -33,7 +33,7 @@ function getComputerChoice(){
 }
 
 ////Function to convert the results/////
-function convertWords() {
+function convertWords(letter) {
     if (letter === 'r') return "Rock";
     if (letter === 'p') return "Paper";
     if (letter === 's') return "Scissors";
@@ -60,8 +60,7 @@ function draw(userChoice,computerChoice) {
     const smallUserWord = 'user'.fontsize(3).sub(3);
     const smallCompWord = 'comp'.fontsize(3).sub(3);
  result_p.innerHTML = `${convertWords(userChoice)}${smallUserWord} equals  ${convertWords(computerChoice)}${smallCompWord} . Its a draw`;
-    console.log("Lose") 
-    console.log("Damnnn!") 
+    
 }
 
 
@@ -72,7 +71,7 @@ switch(userChoice + computerChoice){
     case 'rs':
     case 'pr':
     case 'sp':
-        wins(userChoice + computerChoice);
+        win(userChoice + computerChoice);
         break;
     case 'rp':
     case 'ps':
@@ -82,7 +81,7 @@ switch(userChoice + computerChoice){
     case 'rr':
     case 'pp':
      case 'ss':
-         tie(); 
+         draw(); 
         break;
 }
 }
